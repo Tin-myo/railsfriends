@@ -6,7 +6,12 @@ class FriendsController < ApplicationController
   
   # GET /friends.json
   def index
-    @friends = Friend.all
+    if params[:search_key]
+      @friends = Friend.where("first_name LIKE ? OR last_name LIKE ? OR email LIKE ? OR phone LIKE ? OR twitter LIKE ?", 
+      "%#{params[:search_key]}%", "%#{params[:search_key]}%" , "%#{params[:search_key]}%" , "%#{params[:search_key]}%" , "%#{params[:search_key]}%")
+    else
+      @friends = Friend.all
+    end
   end
 
   # GET /friends/1
@@ -81,3 +86,5 @@ class FriendsController < ApplicationController
       params.require(:friend).permit(:first_name, :last_name, :email, :phone, :twitter, :user_id)
     end
 end
+
+

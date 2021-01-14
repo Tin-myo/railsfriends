@@ -5,4 +5,5 @@ class HomeController < ApplicationController
   	@about_me = "My Name is Bla Bla Bla"
   	@answer = 2 + 2
   end
+  
 end
