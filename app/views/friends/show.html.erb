@@ -8,9 +8,12 @@
     <%= @friend.phone %>  |
     <%= @friend.twitter %> 
 
-  </p><br/>
+  </p>
  
-  <%= image_tag(@friend.image)%>
+  <div style="width:400px; height:auto">
+       <%= link_to image_tag(@friend.image,style: "width:100%"), friends_path %>
+     </div>
+     <br/>
   <%= link_to 'Edit', edit_friend_path(@friend), class:"btn btn-secondary" %> |
   <%= link_to 'Delete', @friend, method: :delete, data: { confirm: 'Are you sure?' },class: "btn btn-danger" %> | 
 <%= link_to 'Back', friends_path, class:"btn btn-dark" %>
