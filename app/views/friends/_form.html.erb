@@ -44,7 +44,12 @@
     class:"form-control",
     placeholder:"Twitter" %>
   </div>
- 
+
+  <div class="field"> 
+  <%= form.label :image %>   
+    <%= form.file_field :image %>
+  </div>
+  
   <div class="field form-group">    
     <%= form.number_field :user_id, 
     id: :friend_user_id, class:"form-control",
